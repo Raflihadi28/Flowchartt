@@ -1,0 +1,58 @@
+flowchart TD
+    A[Login] --> B[Dashboard Utama]
+    
+    B --> C[Penjualan]
+    B --> D[Pengeluaran] 
+    B --> E[Asset]
+    B --> F[Modal]
+    B --> G[Kewajiban]
+    B --> H[Laporan]
+    
+    C --> C1[Input Harian]
+    D --> D1[Input Harian]
+    E --> E1[Input/Update]
+    F --> F1[Input Harian] 
+    G --> G1[Input Data]
+    
+    C1 --> DB[(Database)]
+    D1 --> DB
+    E1 --> DB
+    F1 --> DB
+    G1 --> DB
+    
+    DB --> CALC[Kalkulasi Otomatis]
+    
+    CALC --> R1[Penjualan per Hari]
+    CALC --> R2[Pengeluaran Harian]
+    CALC --> R3[Profit Bersih]
+    CALC --> R4[Total Asset]
+    CALC --> R5[Modal Harian]
+    CALC --> R6[Total Kewajiban]
+    
+    H --> DASHBOARD[Dashboard Keuangan]
+    R1 --> DASHBOARD
+    R2 --> DASHBOARD
+    R3 --> DASHBOARD
+    R4 --> DASHBOARD
+    R5 --> DASHBOARD
+    R6 --> DASHBOARD
+    
+    DASHBOARD --> EXPORT[Export Laporan]
+    
+    classDef loginStyle fill:#FF5722,stroke:#D84315,stroke-width:3px,color:#fff,font-size:18px
+    classDef dashStyle fill:#2196F3,stroke:#1976D2,stroke-width:3px,color:#fff,font-size:18px
+    classDef moduleStyle fill:#4CAF50,stroke:#388E3C,stroke-width:3px,color:#fff,font-size:16px
+    classDef inputStyle fill:#81C784,stroke:#66BB6A,stroke-width:2px,color:#fff,font-size:16px
+    classDef dbStyle fill:#607D8B,stroke:#455A64,stroke-width:3px,color:#fff,font-size:16px
+    classDef calcStyle fill:#FF9800,stroke:#F57C00,stroke-width:3px,color:#fff,font-size:16px
+    classDef resultStyle fill:#9C27B0,stroke:#7B1FA2,stroke-width:2px,color:#fff,font-size:16px
+    classDef reportStyle fill:#E91E63,stroke:#C2185B,stroke-width:2px,color:#fff,font-size:16px
+    
+    class A loginStyle
+    class B dashStyle
+    class C,D,E,F,G moduleStyle
+    class C1,D1,E1,F1,G1 inputStyle
+    class DB dbStyle
+    class CALC calcStyle
+    class R1,R2,R3,R4,R5,R6 resultStyle
+    class H,DASHBOARD,EXPORT reportStyle
